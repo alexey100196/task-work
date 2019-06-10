@@ -6,8 +6,9 @@ class Food {
       this.ingredients = ingredients;
     }
     addCount() {
-      this.count++
+      let sumCount = this.count++
       console.log(`${this.count}`)
+       let sumCount
     }
     orderIsReady() {
       console.log(`start cooking ${this.name}:`)

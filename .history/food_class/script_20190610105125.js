@@ -6,7 +6,7 @@ class Food {
       this.ingredients = ingredients;
     }
     addCount() {
-      this.count++
+      let sumCount = this.count++
       console.log(`${this.count}`)
     }
     orderIsReady() {
@@ -33,7 +33,6 @@ class Food {
       }, this.cookTime)
   }
   giveOrder() {
-    let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML;
     document.querySelector('#orderDone').innerHTML = sumCount
     setTimeout(() => {
       document.querySelector('.cook_count-pizza').innerHTML =  this.count = 0

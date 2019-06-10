@@ -8,6 +8,7 @@ class Food {
     addCount() {
       this.count++
       console.log(`${this.count}`)
+      
     }
     orderIsReady() {
       console.log(`start cooking ${this.name}:`)

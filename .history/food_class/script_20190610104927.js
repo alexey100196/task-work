@@ -40,7 +40,6 @@ class Food {
       document.querySelector('.cook_count-burger').innerHTML =  this.count = 0
       document.querySelector('.cook_count-taco').innerHTML =  this.count = 0
     }, 100)
-    console.log(sumCount)
   }
 }
 class Pizza extends Food {

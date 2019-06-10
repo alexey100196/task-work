@@ -33,14 +33,12 @@ class Food {
       }, this.cookTime)
   }
   giveOrder() {
-    let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML;
     document.querySelector('#orderDone').innerHTML = sumCount
     setTimeout(() => {
-      document.querySelector('.cook_count-pizza').innerHTML =  this.count = 0
-      document.querySelector('.cook_count-burger').innerHTML =  this.count = 0
-      document.querySelector('.cook_count-taco').innerHTML =  this.count = 0
+      document.querySelector('.cook_count-pizza').innerHTML =  0
+      document.querySelector('.cook_count-burger').innerHTML =  0
+      document.querySelector('.cook_count-taco').innerHTML =  0
     }, 100)
-    console.log(sumCount)
   }
 }
 class Pizza extends Food {
@@ -89,3 +87,5 @@ document.querySelector('.btn_order').addEventListener('click', function(){
     taco.giveOrder()
 });
 
+let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML;
+// document.querySelector('#orderDone').innerHTML = sumCount

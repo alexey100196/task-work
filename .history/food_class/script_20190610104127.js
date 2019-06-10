@@ -33,14 +33,15 @@ class Food {
       }, this.cookTime)
   }
   giveOrder() {
-    let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML;
+    let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML
+    console.log(sumCount)
     document.querySelector('#orderDone').innerHTML = sumCount
     setTimeout(() => {
-      document.querySelector('.cook_count-pizza').innerHTML =  this.count = 0
-      document.querySelector('.cook_count-burger').innerHTML =  this.count = 0
-      document.querySelector('.cook_count-taco').innerHTML =  this.count = 0
+      document.querySelector('.cook_count-taco').innerHTML = this.count
+      document.querySelector('.cook_count-pizza').innerHTML = this.count = 0
+      document.querySelector('.cook_count-burger').innerHTML = this.count = 0
+      document.querySelector('.cook_count-taco').innerHTML = this.count = 0
     }, 100)
-    console.log(sumCount)
   }
 }
 class Pizza extends Food {
