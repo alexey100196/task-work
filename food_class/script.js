@@ -8,6 +8,10 @@ class Food {
   addCount() {
     this.count++
     console.log(`${this.count}`)
+    
+    // setTimeout(() => {
+    //   document.querySelector(this.countSelector).innerHTML = this.count
+    // }, this.cookTime)
   }
   orderIsReady() {
     console.log(`start cooking ${this.name}:`)

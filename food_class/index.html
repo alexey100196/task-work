@@ -10,24 +10,39 @@
 </head>
 
 <body>
-  <button id="cook-pizza" class="lang-btn" data='0'>
-    cook Pizza
-  </button>
-  <button id="cook-burger" class="lang-btn" data='1'>
-    cook burger
-  </button>
-  <button id="cook-taco" class="lang-btn" data='2'>
-    cook taco
-  </button>
+  <table>
+    <tbody>
+      <tr>
+        <td class="pizza-block">
+          <p>Pizza-count: <span class="cook_count cook_count-pizza">0</span></p><img src="/food_class/img/pizza.png"
+            alt="">
+        </td>
+        <td class="burger-block">
+          <p>Burger-count: <span class="cook_count cook_count-burger">0</span></p><img src="/food_class/img/burger.png"
+            alt="">
+        </td>
+        <td class="taco-block">
+          <p>Taco-count: <span class="cook_count cook_count-taco">0</span></p><img src="/food_class/img/taco.png"
+            alt="">
+        </td>
+      </tr>
+      <tr>
+        <td align="center"><button id="cook-pizza" class="btn" data='0'>cook Pizza</button></td>
+        <td align="center"><button id="cook-burger" class="btn" data='1'>cook Burger</button></td>
+        <td align="center"><button id="cook-taco" class="btn" data='2'>cook Taco</button></td>
+      </tr>
+      <tr>
+        <td align="center"><input class="btn btn_order" type="button" value="give order"></td>
+        <td align="center">
+          <p>Order done: <span id="orderDone"></span></p>
+        </td>
+      </tr>
 
-  <p>Pizza-count: <span class="cook_count cook_count-pizza"></span></p>
-  <p>Burger-count <span class="cook_count cook_count-burger"></span>
-  <p>Taco-count <span class="cook_count cook_count-taco"></span> <br> <br>
-      <input class="btn_order" type="button" value="give order">
+    </tbody>
+  </table>
 
-      <p>Order done: <span id="orderDone"></span></p>
 
-      <script src='script.js'></script>
+  <script src='script.js'></script>
 </body>
 
 </html>

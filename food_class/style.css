@@ -1,3 +1,50 @@
-input[type=button] {
-  margin-left: 20px;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
 }
+
+
+img {
+  width: 100px;
+  height: 100px;
+}
+body table tbody tr td p {
+  font-weight: 600;
+}
+body table tbody tr td {
+  padding: 15px;
+}
+body table {
+  margin: 0 auto;
+}
+body table {
+  border-spacing: 1.5rem
+}
+.pizza-block,
+.burger-block,
+.taco-block {
+  position: relative;
+  background: #ee7171;
+  border: 3px solid #000;
+  border-radius: 7%;
+  padding: 1rem;
+}
+.burger-block {
+  background: #71abee;
+}
+.taco-block {
+  background: #71ee74;
+}
+.btn {
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 7px;
+  cursor: pointer;
+  background-color: #eeea71;
+  font-weight: 600;
+  outline: none;
+}
+.btn:active {
+  background-color: #a9ee71;
+}
+
