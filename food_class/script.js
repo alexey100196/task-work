@@ -1,3 +1,4 @@
+let textArea = document.getElementsByTagName('textarea')[0]
 
 class Food {
   constructor(name, price, ingredients) {
@@ -6,97 +7,75 @@ class Food {
     this.ingredients = ingredients;
   }
   addCount() {
-    this.count++
-    console.log(`${this.count}`)
-    
-    // setTimeout(() => {
-    //   document.querySelector(this.countSelector).innerHTML = this.count
-    // }, this.cookTime)
+    setTimeout(() => {
+      document.querySelector(this.countSelector).innerHTML = this.count
+    }, this.cookTime)
   }
   orderIsReady() {
-    console.log(`start cooking ${this.name}:`)
+    textArea.value += (`start cooking ${this.name}: \n`)
     setTimeout(() => {
-      console.log(`${this.name} cooked`)
+      textArea.value += (` ${this.name} cooked \n`)
       this.count++
-      console.log(`${this.name}: ${this.count}`)
-    }, this.cookTime)
-  }
-  addPizzaCount() {
-    setTimeout(() => {
-      document.querySelector('.cook_count-pizza').innerHTML = this.count
-    }, this.cookTime)
-  }
-  addBurgerCount() {
-    setTimeout(() => {
-      document.querySelector('.cook_count-burger').innerHTML = this.count
-    }, this.cookTime)
-  }
-  addTacoCount() {
-    setTimeout(() => {
-      document.querySelector('.cook_count-taco').innerHTML = this.count
+      textArea.value += (` ${this.name}: ${this.count} \n \n`)
     }, this.cookTime)
   }
   giveOrder() {
     let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML;
     document.querySelector('#orderDone').innerHTML = sumCount
-
     setTimeout(() => {
-      document.querySelector('.cook_count-pizza').innerHTML = this.count = 0
-      document.querySelector('.cook_count-burger').innerHTML = this.count = 0
-      document.querySelector('.cook_count-taco').innerHTML = this.count = 0
+      document.querySelector(this.countSelector).innerHTML = this.count = 0
     }, 100)
+    textArea.value = (``)
   }
 }
 class Pizza extends Food {
-  constructor(name, price, ingredients, count, cookTime = 1500) {
-    super(name, price, ingredients);
+  constructor(name, price, ingredients, count, cookTime = 1500, selector = '.cook_count-pizza') {
+    super(name, price, ingredients,selector);
     this.count = count;
-    this.cookTime = cookTime
+    this.cookTime = cookTime;
+    this.countSelector = selector
   }
 }
 class Burger extends Food {
-  constructor(name, price, ingredients, count, cookTime = 500) {
-    super(name, price, ingredients);
+  constructor(name, price, ingredients, count, cookTime = 500, selector = '.cook_count-burger') {
+    super(name, price, ingredients,selector);
     this.count = count;
-    this.cookTime = cookTime
+    this.cookTime = cookTime;
+    this.countSelector = selector
   }
 }
 class Taco extends Food {
-  constructor(name, price, ingredients, count, cookTime = 1000) {
-    super(name, price, ingredients);
+  constructor(name, price, ingredients, count, cookTime = 1000, selector = '.cook_count-taco') {
+    super(name, price, ingredients,selector);
     this.count = count;
-    this.cookTime = cookTime
+    this.cookTime = cookTime;
+    this.countSelector = selector
   }
 }
-let pizza = new Pizza('pizza', 14, ['mozzarella ', 'papironi', 'lamborginy'], 0);
-let burger = new Burger('Burger', 10, ['bred ', 'cheese', 'cucumber'], 0);
-let taco = new Taco('Taco', 12, ['arr1 ', 'arr2', 'arr3'], 0);
+
+const pizza = new Pizza('pizza', 14, ['mozzarella ', 'papironi', 'lamborginy'], 0);
+const burger = new Burger('Burger', 10, ['bred ', 'cheese', 'cucumber'], 0);
+const taco = new Taco('Taco', 12, ['arr1 ', 'arr2', 'arr3'], 0);
 
 document.querySelector('#cook-pizza').addEventListener('click', function () {
   pizza.orderIsReady()
-  pizza.addPizzaCount()
+  pizza.addCount()
 });
 document.querySelector('#cook-burger').addEventListener('click', function () {
   burger.orderIsReady()
-  burger.addBurgerCount()
+  burger.addCount()
 })
 document.querySelector('#cook-taco').addEventListener('click', function () {
   taco.orderIsReady()
-  taco.addTacoCount()
+  taco.addCount()
 });
 
-let textCount = document.querySelector('.cook_count')
 
 document.querySelector('.btn_order').addEventListener('click', function () {
   pizza.giveOrder()
   burger.giveOrder()
   taco.giveOrder()
 });
-
-// setInterval(function() {
-//   if (textCount.innerHTML > 0 ) {
-//   }
-// }, 1000)
 
 
 
