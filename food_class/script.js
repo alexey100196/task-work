@@ -6,17 +6,13 @@ class Food {
     this.price = price;
     this.ingredients = ingredients;
   }
-  addCount() {
-    setTimeout(() => {
-      document.querySelector(this.countSelector).innerHTML = this.count
-    }, this.cookTime)
-  }
   orderIsReady() {
     textArea.value += (`start cooking ${this.name}: \n`)
     setTimeout(() => {
       textArea.value += (` ${this.name} cooked \n`)
       this.count++
       textArea.value += (` ${this.name}: ${this.count} \n \n`)
+      document.querySelector(this.countSelector).innerHTML = this.count
     }, this.cookTime)
   }
   giveOrder() {
@@ -29,27 +25,27 @@ class Food {
   }
 }
 class Pizza extends Food {
-  constructor(name, price, ingredients, count, cookTime = 1500, selector = '.cook_count-pizza') {
-    super(name, price, ingredients,selector);
+  constructor(name, price, ingredients, count, cookTime = 1500, countSelector = '.cook_count-pizza') {
+    super(name, price, ingredients, countSelector);
     this.count = count;
     this.cookTime = cookTime;
-    this.countSelector = selector
+    this.countSelector = countSelector
   }
 }
 class Burger extends Food {
-  constructor(name, price, ingredients, count, cookTime = 500, selector = '.cook_count-burger') {
-    super(name, price, ingredients,selector);
+  constructor(name, price, ingredients, count, cookTime = 500, countSelector = '.cook_count-burger') {
+    super(name, price, ingredients, countSelector);
     this.count = count;
     this.cookTime = cookTime;
-    this.countSelector = selector
+    this.countSelector = countSelector
   }
 }
 class Taco extends Food {
-  constructor(name, price, ingredients, count, cookTime = 1000, selector = '.cook_count-taco') {
-    super(name, price, ingredients,selector);
+  constructor(name, price, ingredients, count, cookTime = 1000, countSelector = '.cook_count-taco') {
+    super(name, price, ingredients, countSelector);
     this.count = count;
     this.cookTime = cookTime;
-    this.countSelector = selector
+    this.countSelector = countSelector
   }
 }
 
@@ -57,25 +53,30 @@ const pizza = new Pizza('pizza', 14, ['mozzarella ', 'papironi', 'lamborginy'], 
 const burger = new Burger('Burger', 10, ['bred ', 'cheese', 'cucumber'], 0);
 const taco = new Taco('Taco', 12, ['arr1 ', 'arr2', 'arr3'], 0);
 
-document.querySelector('#cook-pizza').addEventListener('click', function () {
-  pizza.orderIsReady()
-  pizza.addCount()
-});
-document.querySelector('#cook-burger').addEventListener('click', function () {
-  burger.orderIsReady()
-  burger.addCount()
-})
-document.querySelector('#cook-taco').addEventListener('click', function () {
-  taco.orderIsReady()
-  taco.addCount()
-});
-
+document.querySelector('body').addEventListener('click', startCook);
+function startCook(e) {
+  if (!e.target.classList.contains('btn')) return false
+  let dataBtn = e.target.getAttribute('data-btn');
+  switch (dataBtn) {
+    case 'pizza':
+      pizza.orderIsReady()
+      break
+    case 'burger':
+      burger.orderIsReady()
+      break
+    case 'taco':
+      taco.orderIsReady()
+      break
+  }
+}
 
 document.querySelector('.btn_order').addEventListener('click', function () {
   pizza.giveOrder()
   burger.giveOrder()
   taco.giveOrder()
 });
+
+
 
 
 
