@@ -88,9 +88,9 @@ document.querySelector('.btn_order').addEventListener('click', function () {
   burger.giveOrder()
   taco.giveOrder()
 });
-
 // setInterval(function() {
 //   if (textCount.innerHTML > 0 ) {
+//     console.log('test');
 //   }
 // }, 1000)
 

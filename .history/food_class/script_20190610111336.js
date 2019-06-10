@@ -35,12 +35,16 @@ class Food {
   giveOrder() {
     let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML;
     document.querySelector('#orderDone').innerHTML = sumCount
+    localStorage.getItem('bgcolor', sumCount)
+    if (localStorage.getItem('bgcolor') !== null) {
 
+    }
     setTimeout(() => {
       document.querySelector('.cook_count-pizza').innerHTML = this.count = 0
       document.querySelector('.cook_count-burger').innerHTML = this.count = 0
       document.querySelector('.cook_count-taco').innerHTML = this.count = 0
     }, 100)
+    console.log(sumCount)
   }
 }
 class Pizza extends Food {
@@ -89,10 +93,13 @@ document.querySelector('.btn_order').addEventListener('click', function () {
   taco.giveOrder()
 });
 
-// setInterval(function() {
-//   if (textCount.innerHTML > 0 ) {
-//   }
-// }, 1000)
+// var select = document.querySelector('#orderDone');
+//     document.addEventListener('DOMContentLoaded', function () {
+//       document.querySelector('#orderDone').innerHTML = localStorage.getItem('theme')
+//     })
+//     select.addEventListener('click', function () {
+//         localStorage.setItem('theme', select.value)
+//     })
 
 
 

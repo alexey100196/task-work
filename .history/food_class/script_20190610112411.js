@@ -89,10 +89,6 @@ document.querySelector('.btn_order').addEventListener('click', function () {
   taco.giveOrder()
 });
 
-// setInterval(function() {
-//   if (textCount.innerHTML > 0 ) {
-//   }
-// }, 1000)
 
 
 
