@@ -20,24 +20,28 @@ class Food {
     addPizzaCount() {
       setTimeout(() => {
         document.querySelector('.cook_count-pizza').innerHTML = this.count
-        // console.log(this.count)
       }, this.cookTime)
   }
     addBurgerCount() {
       setTimeout(() => {
         document.querySelector('.cook_count-burger').innerHTML = this.count
-        // console.log(this.count)
       }, this.cookTime)
     }
     addTacoCount() {
       setTimeout(() => {
         document.querySelector('.cook_count-taco').innerHTML = this.count
-        // console.log(this.count)
       }, this.cookTime)
   }
-
   giveOrder() {
-   this.count = 0
+    let sumCount = +document.querySelector('.cook_count-pizza').innerHTML + +document.querySelector('.cook_count-burger').innerHTML + +document.querySelector('.cook_count-taco').innerHTML
+    console.log(sumCount)
+    document.querySelector('#orderDone').innerHTML = sumCount
+    setTimeout(() => {
+      document.querySelector('.cook_count-taco').innerHTML = this.count
+      document.querySelector('.cook_count-pizza').innerHTML = this.count = 0
+      document.querySelector('.cook_count-burger').innerHTML = this.count = 0
+      document.querySelector('.cook_count-taco').innerHTML = this.count = 0
+    }, 100)
   }
 }
 class Pizza extends Food {
@@ -59,7 +63,6 @@ class Taco extends Food {
     super (name, price, ingredients);
     this.count = count;
     this.cookTime = cookTime
-    console.log(this.count)
   }
 }
 let pizza = new Pizza('pizza', 14, ['mozzarella ' , 'papironi', 'lamborginy'], 0);
@@ -79,21 +82,12 @@ document.querySelector('#cook-taco').addEventListener('click',  function() {
     taco.addTacoCount()
   });
 
-      
 let textCount = document.querySelector('.cook_count') 
 
-// setInterval(function() {
-//   if (textCount.innerHTML > 0 ) {
-//     console.log('test');
-//   }
-// }, 1000)
-
 document.querySelector('.btn_order').addEventListener('click', function(){
-  if (textCount.innerHTML > 0 ) {
-    textCount.innerHTML = 0;
     pizza.giveOrder()
-    document.querySelector('#orderDone').innerHTML = textCount.innerHTML
-  }
-});
+    burger.giveOrder()
+    taco.giveOrder()
 
+});
 
