@@ -49,27 +49,18 @@ class Taco extends Food {
   }
 }
 
-const pizza = new Pizza('pizza', 14, ['mozzarella ', 'papironi', 'lamborginy'], 0);
-const burger = new Burger('Burger', 10, ['bred ', 'cheese', 'cucumber'], 0);
-const taco = new Taco('Taco', 12, ['arr1 ', 'arr2', 'arr3'], 0);
+let foodValue = {
+  pizza : new Pizza('pizza', 14, ['mozzarella ', 'papironi', 'lamborginy'], 0),
+  burger: new Burger('Burger', 10, ['bred ', 'cheese', 'cucumber'], 0),
+  taco: new Taco('Taco', 12, ['arr1 ', 'arr2', 'arr3'], 0)
+}
 
 document.querySelector('body').addEventListener('click', startCook);
 function startCook(e) {
   if (!e.target.classList.contains('btn')) return false
   let dataBtn = e.target.getAttribute('data-btn');
-  switch (dataBtn) {
-    case 'pizza':
-      pizza.orderIsReady()
-      break
-    case 'burger':
-      burger.orderIsReady()
-      break
-    case 'taco':
-      taco.orderIsReady()
-      break
-  }
+  foodValue[dataBtn].orderIsReady()
 }
-
 document.querySelector('.btn_order').addEventListener('click', function () {
   pizza.giveOrder()
   burger.giveOrder()
